@@ -1,0 +1,24 @@
+.search {
+  margin-top: 2% !important;
+}
+.input-group {
+  line-height: 1.5;
+  border: 1px solid #ced4da;
+  border-radius: 50px;
+  padding: 1%;
+}
+.form-control {
+  border: none;
+}
+input {
+  outline: none !important;
+}
+.user-section,
+.user-content {
+  vertical-align: middle;
+  text-align: center;
+  padding: 1% 0;
+}
+.user-icon {
+  color: #e86060;
+}
