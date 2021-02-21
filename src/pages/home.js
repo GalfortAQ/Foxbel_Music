@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Col, Row } from "reactstrap";
 import { Link } from "react-router-dom";
 import Search from "../components/search";
-import Player from "../components/player";
 import "../css/home.css";
+import "../css/player.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import * as methods from "../services/getDeezer";
@@ -12,6 +12,9 @@ import icon from "../images/foxbel-music.png";
 export default class Home extends Component {
   state = {
     elements: [],
+    track: {
+      album: "",
+    },
   };
   componentDidMount() {
     methods.getElements().then((item) =>
@@ -39,7 +42,12 @@ export default class Home extends Component {
                   alt=""
                   className="card-img-top"
                 />
-                <Link to={`/player/${item.id}`} className="link">
+                {/* <Link to={`/player/${item.id}`} className="link">
+                  <i className="card-icons">
+                    <FontAwesomeIcon icon={faPlay} />
+                  </i>
+                </Link> */}
+                <Link onClick={() => this.handleSort(item.id)} className="link">
                   <i className="card-icons">
                     <FontAwesomeIcon icon={faPlay} />
                   </i>
@@ -54,8 +62,33 @@ export default class Home extends Component {
         ))
       : null;
   }
+  handleSort = (id) => {
+    methods.getTrack(id).then((item) =>
+      this.setState({
+        track: item,
+      })
+    );
+  };
+  renderPlayer = () => {
+    const { track } = this.state;
+    return (
+      <Row>
+        <Col className="player-detail-img"  md="1">
+          <img className="player-img" src={track.album.cover_medium} alt="" />
+        </Col>
+        <Col className="player-detail-name"  md="2">
+          <p className="player-title">{track.title}</p>
+          <span className="player-album">{track.album.title}</span>
+        </Col>
+        <Col className="player-resource">
+          <audio src={track.preview} controls autoPlay>
+            Your browser does not support the audio element.
+          </audio>
+        </Col>
+      </Row>
+    );
+  };
   render() {
-    console.log(this.state);
     return (
       <React.Fragment>
         <div className="container container-main">
@@ -127,10 +160,7 @@ export default class Home extends Component {
               <Row className="container-cards">{this.renderElements()}</Row>
             </Col>
           </Row>
-          <Row>
-            <Col md="12"></Col>
-            {/* <Player /> */}
-          </Row>
+          <div className="footer">{this.renderPlayer()}</div>
         </div>
       </React.Fragment>
     );

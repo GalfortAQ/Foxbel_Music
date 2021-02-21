@@ -1,3 +1,6 @@
+body {
+  overflow-x: hidden;
+}
 .container.container-main,
 .container-fluid.container-main,
 .container-lg.container-main,
@@ -81,8 +84,8 @@ li {
   margin-right: auto;
   margin-left: auto;
 }
-.card{
-  border:none;
+.card {
+  border: none;
   /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
 }
 .card-icons {
@@ -92,23 +95,163 @@ li {
 .card-col {
   padding-bottom: 1%;
 }
-.card-body{
+.card-body {
   font-family: "Quicksand";
 }
-.card-title{
+.card-title {
   font-weight: bold;
   font-size: 1.2rem;
 }
-.text-primary{
+.text-primary {
   color: grey !important;
 }
-.card-img-top{
+.card-img-top {
   position: relative;
   text-align: center;
 }
-.link{
+.link {
   position: absolute;
   top: 35%;
   left: 55%;
   transform: translate(-50%, -50%);
+}
+.footer {
+  height: 100px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #eb5757;
+  color: white;
+  text-align: center;
+  z-index: 10000;
+}
+.footer-col {
+  vertical-align: middle !important;
+}
+.player-img {
+  height: 100px;
+  width: auto;
+}
+.player-detail-img,
+.player-detail-name {
+  text-align: left;
+}
+.player-title,
+.player-album {
+  color: white;
+  font-family: "Quicksand";
+}
+.player-title {
+  font-weight: bold;
+  padding-top: 6%;
+  margin-bottom: 0.2%;
+  font-size: 1.1rem;
+}
+.player-album {
+  font-size: 1rem;
+}
+/* Moto G4 */
+@media (max-width: 360px) {
+  .player-detail-img {
+    width: 105px;
+  }
+  .player-detail-name {
+    width: 80px;
+    line-height: 0.7rem !important;
+  }
+  .player-resource {
+    width: 90px;
+  }
+  audio {
+    width: 65% !important;
+  }
+  audio::-webkit-media-controls-timeline{
+    display: none;
+  }
+  .player-title {
+    padding-top: 1rem!important;
+    font-size: 1.5vh !important;
+  }
+  .player-album {
+    font-size: 1vh !important;
+  }
+}
+/* Pixel 2 */
+@media (max-width: 411px) {
+  .player-detail-img {
+    width: 105px;
+  }
+  .player-detail-name {
+    width: 80px;
+    line-height: 0.7rem !important;
+  }
+  .player-resource {
+    width: 90px;
+  }
+  audio {
+    width: 65% !important;
+  }
+  audio::-webkit-media-controls-timeline{
+    display: none;
+  }
+  .player-title {
+    padding-top: 1rem!important;
+    font-size: 1.5vh !important;
+  }
+  .player-album {
+    font-size: 1vh !important;
+  }
+}
+/*iPhone 5 */
+@media (max-width: 320px) {
+  .player-detail-img {
+    width: 105px;
+  }
+  .player-detail-name {
+    width: 60px;
+    line-height: 0.6rem !important;
+  }
+  .player-resource {
+    width: 100px;
+  }
+  audio {
+    width: 60% !important;
+  }
+  audio::-webkit-media-controls-timeline{
+    display: none;
+  }
+  .player-title {
+    padding-top: 1rem!important;
+    font-size: 1.5vh !important;
+  }
+  .player-album {
+    font-size: 1vh !important;
+  }
+}
+/*iPhone 6 PLUS */
+@media (max-width: 414px) {
+  .player-detail-img {
+    width: 105px;
+  }
+  .player-detail-name {
+    width: 70px;
+    line-height: 0.6rem !important;
+  }
+  .player-resource {
+    width: 100px;
+  }
+  audio {
+    width: 60% !important;
+  }
+  audio::-webkit-media-controls-timeline{
+    display: none;
+  }
+  .player-title {
+    padding-top: 1rem!important;
+    font-size: 1.5vh !important;
+  }
+  .player-album {
+    font-size: 1vh !important;
+  }
 }

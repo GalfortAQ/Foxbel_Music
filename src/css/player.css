@@ -1,0 +1,9 @@
+audio {
+width: 90%;
+height: 80px;
+  outline: none !important;
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: #eb5757;
+}
